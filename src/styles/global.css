@@ -1,15 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #ecf9f2;
-  --color-primary-100: #d1f0e0;
-  --color-primary-200: #aae4c7;
-  --color-primary-300: #7cd5a8;
-  --color-primary-400: #4dc68a;
-  --color-primary-500: #34a26b;
-  --color-primary-600: #277a50;
-  --color-primary-700: #1f6140;
-  --color-primary-800: #174930;
-  --color-primary-900: #103221;
-  --color-primary-950: #0a1f14;
+  /* Escala dorada (a partir de #e4af4f) — botones, links, precios, hovers */
+  --color-primary-50: #fbf7ee;
+  --color-primary-100: #f6ecda;
+  --color-primary-200: #f3dbaf;
+  --color-primary-300: #ecc783;
+  --color-primary-400: #e5b357;
+  --color-primary-500: #e0a538;
+  --color-primary-600: #cb8e1f;
+  --color-primary-700: #a47219;
+  --color-primary-800: #7c5713;
+  --color-primary-900: #583e0e;
+  --color-primary-950: #37270b;
+
+  /* Header, footer, títulos y textos oscuros pasan del gris genérico
+     al verde oscuro de la marca (#173929) */
+  --color-slate-900: #173929;
+
+  /* Fondos de sección claros pasan del gris genérico al beige de la marca (#ece2b1) */
+  --color-slate-50: #ece2b1;
 }
