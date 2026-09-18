@@ -54,7 +54,8 @@ const nombreAgencia = import.meta.env.PUBLIC_AGENCIA_NOMBRE || "Inmobiliaria";
           });
 
           if (error) {
-            alert("Error: Correo o contraseña incorrectos.");
+            console.error("Error de login:", error);
+            alert("Error: " + error.message);
             btnIngresar.innerText = "Ingresar al Panel";
             btnIngresar.disabled = false;
           } else {
