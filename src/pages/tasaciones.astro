@@ -1,0 +1,185 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Tasaciones">
+  <main class="max-w-4xl mx-auto px-4 py-20">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-black text-slate-900 mb-4">Tasá tu propiedad</h1>
+      <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+        Contanos los datos generales de tu propiedad y nos ponemos en contacto para coordinar una tasación presencial, sin cargo y sin compromiso.
+      </p>
+    </div>
+
+    <form id="form-tasacion" class="bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-slate-100 space-y-12">
+
+      <fieldset>
+        <legend class="flex items-center gap-2 text-lg font-bold text-slate-900 mb-6">
+          <span class="text-2xl">🙋</span> Datos personales
+        </legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="md:col-span-2">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Nombre y apellido</label>
+            <input type="text" id="t-nombre" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+            <input type="email" id="t-email" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Teléfono</label>
+            <input type="tel" id="t-telefono" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Horario de contacto</label>
+            <input type="text" id="t-horario" placeholder="Ej: tardes de 14 a 18 hs" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Dirección de la propiedad</label>
+            <input type="text" id="t-direccion" required class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all" />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="flex items-center gap-2 text-lg font-bold text-slate-900 mb-6">
+          <span class="text-2xl">🏠</span> Datos del inmueble
+        </legend>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Operación</label>
+            <select id="t-operacion" class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:outline-none cursor-pointer">
+              <option value="Venta">Venta</option>
+              <option value="Alquiler">Alquiler</option>
+              <option value="Alquiler Temporal">Alquiler Temporal</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Tipo de propiedad</label>
+            <select id="t-tipo" class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:outline-none cursor-pointer">
+              <option value="Casa">Casa</option>
+              <option value="Departamento">Departamento</option>
+              <option value="Terreno">Terreno</option>
+              <option value="Local">Local</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Ambientes</label>
+            <select id="t-ambientes" class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:outline-none cursor-pointer">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5 o más">5 o más</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Sup. cubierta (m²)</label>
+            <input type="number" min="0" id="t-sup-cubierta" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Sup. total (m²)</label>
+            <input type="number" min="0" id="t-sup-total" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Garage</label>
+            <select id="t-garage" class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary-500 focus:outline-none cursor-pointer">
+              <option value="true">Sí</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="flex items-center gap-2 text-lg font-bold text-slate-900 mb-6">
+          <span class="text-2xl">➕</span> Adicionales
+        </legend>
+        <div class="space-y-6">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">¿Tiene amenities? (pileta, parrilla, seguridad, etc.)</label>
+            <input type="text" id="t-amenities" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Observaciones</label>
+            <textarea id="t-observaciones" rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-primary-200">
+        Solicitar Tasación
+      </button>
+
+      <p class="text-xs text-slate-400 text-center -mt-6">
+        Este formulario no reemplaza una tasación online: con estos datos coordinamos con vos una visita presencial a la propiedad.
+      </p>
+    </form>
+  </main>
+</MainLayout>
+
+<script>
+  import { supabase } from '../lib/supabase.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form-tasacion');
+    const btnSubmit = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const datos = {
+        nombre: document.getElementById('t-nombre').value,
+        email: document.getElementById('t-email').value,
+        telefono: document.getElementById('t-telefono').value,
+        horario_contacto: document.getElementById('t-horario').value,
+        direccion: document.getElementById('t-direccion').value,
+        operacion: document.getElementById('t-operacion').value,
+        tipo_propiedad: document.getElementById('t-tipo').value,
+        ambientes: document.getElementById('t-ambientes').value,
+        sup_cubierta: Number(document.getElementById('t-sup-cubierta').value) || null,
+        sup_total: Number(document.getElementById('t-sup-total').value) || null,
+        garage: document.getElementById('t-garage').value === 'true',
+        amenities: document.getElementById('t-amenities').value,
+        observaciones: document.getElementById('t-observaciones').value,
+      };
+
+      const textoOriginal = btnSubmit.innerText;
+      btnSubmit.innerText = 'Enviando...';
+      btnSubmit.disabled = true;
+
+      // La abrimos en blanco ACÁ (todavía dentro del click del usuario) para que el
+      // navegador no la bloquee como pop-up. Recién le ponemos el link después.
+      const whatsapp = import.meta.env.PUBLIC_WHATSAPP;
+      const ventanaWhatsapp = whatsapp ? window.open('', '_blank') : null;
+
+      try {
+        const { error } = await supabase.from('tasaciones').insert([datos]);
+        if (error) throw error;
+
+        if (ventanaWhatsapp) {
+          const resumen = [
+            `Hola! Quiero solicitar una tasación:`,
+            `Nombre: ${datos.nombre}`,
+            `Teléfono: ${datos.telefono}`,
+            `Dirección: ${datos.direccion}`,
+            `Operación: ${datos.operacion} - ${datos.tipo_propiedad} - ${datos.ambientes} amb.`,
+            datos.horario_contacto ? `Horario de contacto: ${datos.horario_contacto}` : null,
+          ].filter(Boolean).join('\n');
+
+          ventanaWhatsapp.location.href = `https://wa.me/${whatsapp}?text=${encodeURIComponent(resumen)}`;
+        }
+
+        alert('¡Solicitud enviada! Te vamos a contactar a la brevedad para coordinar la tasación.');
+        form.reset();
+      } catch (error) {
+        ventanaWhatsapp?.close();
+        alert('Hubo un error al enviar la solicitud. Por favor, intentá de nuevo.');
+        console.error(error);
+      } finally {
+        btnSubmit.innerText = textoOriginal;
+        btnSubmit.disabled = false;
+      }
+    });
+  });
+</script>
